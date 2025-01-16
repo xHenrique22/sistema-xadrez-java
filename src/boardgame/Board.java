@@ -50,5 +50,6 @@ public class Board {
 	// Método para colocar uma peça no tabuleiro em uma posição específica
 	public void placePiece(Piece piece, Position position) {
 		pieces[position.getRow()][position.getColumn()]  = piece; // Coloca a peça na posição especificada
+		piece.position = position; // Atualiza a posição da peça para refletir a posição atual no tabuleiro
 	}
 }

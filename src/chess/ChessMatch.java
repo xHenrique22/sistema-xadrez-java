@@ -1,6 +1,9 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Position;
+import chess.pieces.King;
+import chess.pieces.Rook;
 
 public class ChessMatch {
 
@@ -10,6 +13,7 @@ public class ChessMatch {
 	// Construtor que inicializa o tabuleiro com 8 linhas e 8 colunas (tabuleiro padrão de xadrez)
 	public ChessMatch() {
 		board = new Board(8, 8); // Cria um novo tabuleiro com 8x8
+		initialSetup();
 	}
 	
 	// Método que retorna uma matriz de ChessPiece representando todas as peças no tabuleiro
@@ -29,5 +33,11 @@ public class ChessMatch {
 		
 		// Retorna a matriz com as peças
 		return mat;
+	}
+	
+	private void initialSetup() {
+		board.placePiece(new Rook(board, Color.WHITE), new Position (2, 1));
+		board.placePiece(new King(board, Color.BLACK), new Position(0, 4));
+		board.placePiece(new King(board, Color.WHITE), new Position(7, 4));
 	}
 }
